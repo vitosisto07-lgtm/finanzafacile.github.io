@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinanceAI - Il Tuo Assistente Finanziario</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="background-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-chart-pie"></i>
+                <h1>Finanza Facile</h1>
+            </div>
+            <p>Il tuo budget, semplice e chiaro ogni giorno.</p>
+        </header>
+
+        <main class="dashboard">
+            <!-- Colonna Sinistra: Input Dati -->
+            <section class="glass-panel input-section">
+                <h2><i class="fa-solid fa-wallet"></i> Il Tuo Budget Mensile</h2>
+
+                <div class="input-group">
+                    <label for="income">Reddito Mensile Netto (€)</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-euro-sign"></i>
+                        <input type="number" id="income" placeholder="Es. 2000" min="0">
+                    </div>
+                </div>
+
+                <h3>Spese Mensili Fisse</h3>
+
+                <div class="expenses-grid">
+                    <div class="input-group">
+                        <label for="rent"><i class="fa-solid fa-house"></i> Affitto/Mutuo</label>
+                        <input type="number" id="rent" class="expense-input" placeholder="0" min="0">
+                    </div>
+                    <div class="input-group">
+                        <label for="bills"><i class="fa-solid fa-bolt"></i> Bollette</label>
+                        <input type="number" id="bills" class="expense-input" placeholder="0" min="0">
+                    </div>
+                    <div class="input-group">
+                        <label for="auto"><i class="fa-solid fa-car"></i> Auto/Trasporti</label>
+                        <input type="number" id="auto" class="expense-input" placeholder="0" min="0">
+                    </div>
+                    <div class="input-group">
+                        <label for="food"><i class="fa-solid fa-basket-shopping"></i> Spesa/Cibo</label>
+                        <input type="number" id="food" class="expense-input" placeholder="0" min="0">
+                    </div>
+
+                </div class="expenses-grid1">
+                <div class="input-group">
+                    <label for="extra"><i class="fa-solid fa-plus"></i> Extra</label>
+                    <input type="number" id="extra" class="expense-input" placeholder="0" min="0">
+                </div>
+                <div>
+
+                </div>
+
+                <button id="calculate-btn" class="primary-btn">
+                    <span>Calcola Resoconto</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </section>
+
+            <!-- Colonna Destra: Resoconto e AI -->
+            <div class="right-column">
+
+                <!-- Resoconto (Inizialmente Nascosto) -->
+                <section id="summary-section" class="glass-panel summary-section hidden">
+                    <h2><i class="fa-solid fa-chart-line"></i> Resoconto</h2>
+
+                    <div class="summary-cards">
+                        <div class="summary-card">
+                            <span class="label">Entrate</span>
+                            <span class="value success" id="summary-income">€0.00</span>
+                        </div>
+                        <div class="summary-card">
+                            <span class="label">Uscite</span>
+                            <span class="value danger" id="summary-expenses">€0.00</span>
+                        </div>
+                        <div class="summary-card main-card">
+                            <span class="label">Rimanenza Mensile</span>
+                            <span class="value primary" id="summary-remaining">€0.00</span>
+                        </div>
+                    </div>
+
+                    <div class="advice-box" id="advice-box">
+                        <h3><i class="fa-solid fa-lightbulb"></i> Suggerimenti per Risparmiare</h3>
+                        <ul id="advice-list">
+                            <!-- Suggerimenti dinamici -->
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- AI Chat -->
+                <section class="glass-panel chat-section">
+                    <div class="chat-header">
+                        <h2><i class="fa-solid fa-robot"></i> Chiedi all'AI</h2>
+                        <span class="status-indicator">Online</span>
+                    </div>
+
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="message ai-message">
+                            <div class="avatar"><i class="fa-solid fa-robot"></i></div>
+                            <div class="content">
+                                Ciao! Sono la tua AI finanziaria. Calcola il tuo resoconto o fammi qualsiasi domanda su
+                                come gestire meglio i tuoi soldi!
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-input-area">
+                        <input type="text" id="chat-input" placeholder="Chiedimi come investire o risparmiare...">
+                        <button id="send-btn" class="icon-btn" aria-label="Invia messaggio">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
